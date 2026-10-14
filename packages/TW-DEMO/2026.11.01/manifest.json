@@ -1,0 +1,201 @@
+{
+ "packageId": "TW-DEMO",
+ "version": "2026.11.01",
+ "schemaVersion": 1,
+ "region": "Demo 區域（非真實地圖）",
+ "demo": true,
+ "sizeBytes": 666058,
+ "sha256": "5056fe6e9ed561d19733e37faf74a3e1df8a227cdfab9315892cda81dd9e2586",
+ "createdAt": "2026-10-10T17:18:02Z",
+ "requires": [],
+ "components": {
+  "map": "maps/demo.json",
+  "routing": "routing/graph.json",
+  "search": "search/index.json",
+  "poi": "poi/poi.json",
+  "alerts": "alerts/alerts.json",
+  "voice": "voice/voice.json",
+  "cities": "cities/cities.json"
+ },
+ "files": [
+  {
+   "path": "maps/demo.json",
+   "size": 50,
+   "sha256": "1f2e8b90ac5b42f2964bcbcfaee5a38cbc1cc6763ed7ac398d6bac680f034e3c",
+   "parts": [
+    {
+     "path": "maps__demo.json.000",
+     "size": 50,
+     "sha256": "1f2e8b90ac5b42f2964bcbcfaee5a38cbc1cc6763ed7ac398d6bac680f034e3c"
+    }
+   ]
+  },
+  {
+   "path": "routing/graph.json",
+   "size": 12770,
+   "sha256": "beacda34886a2faa965903652bf9aa3d54f69b4327af53adbe5d397001f64154",
+   "parts": [
+    {
+     "path": "routing__graph.json.000",
+     "size": 12770,
+     "sha256": "beacda34886a2faa965903652bf9aa3d54f69b4327af53adbe5d397001f64154"
+    }
+   ]
+  },
+  {
+   "path": "search/index.json",
+   "size": 206605,
+   "sha256": "451fbcbc0bf51230a31f017a131d8d0a8c5975784e501a2069a371af3635004c",
+   "parts": [
+    {
+     "path": "search__index.json.000",
+     "size": 32768,
+     "sha256": "f6ddcb12f8fc456cf8a9cb450ac5e009c789c527d707ea19d72772d366c512c2"
+    },
+    {
+     "path": "search__index.json.001",
+     "size": 32768,
+     "sha256": "2731cab974443b81793beaf9b3c20d183db945e9f96161b82875c2804f5f137a"
+    },
+    {
+     "path": "search__index.json.002",
+     "size": 32768,
+     "sha256": "456c97f78acd720b06f90089e8e7c89f6f493b731baf2f6db914a54265036566"
+    },
+    {
+     "path": "search__index.json.003",
+     "size": 32768,
+     "sha256": "176223f10bd737439990f43e1b76b439798c4a5975e2a8803b3ef58c7208788d"
+    },
+    {
+     "path": "search__index.json.004",
+     "size": 32768,
+     "sha256": "914fd97335189f9a644f02db15de73d6ca3f7ef47ec58cac15b660d58063a47d"
+    },
+    {
+     "path": "search__index.json.005",
+     "size": 32768,
+     "sha256": "6403c4a9d75e5d4ea734800f757c396c55c1500c967a841ef450049759435b90"
+    },
+    {
+     "path": "search__index.json.006",
+     "size": 9997,
+     "sha256": "e19c42d848df771162f484f068dca5c485d2da1fe9c56eb1494c62259e70f1a1"
+    }
+   ]
+  },
+  {
+   "path": "poi/poi.json",
+   "size": 443433,
+   "sha256": "de01710d927e4f2ccd7cf37492cd8b33df33912b08de75688e92e3d14f915fbd",
+   "parts": [
+    {
+     "path": "poi__poi.json.000",
+     "size": 32768,
+     "sha256": "f31189f8a3edb1e7f4fa36dc2844b592498567f9ad57ffc11ccb6aa0f9423e2f"
+    },
+    {
+     "path": "poi__poi.json.001",
+     "size": 32768,
+     "sha256": "5938824edf07bbce29339614d595fefe8f936fd3ae794d47d99cd576dee1de70"
+    },
+    {
+     "path": "poi__poi.json.002",
+     "size": 32768,
+     "sha256": "c064fbbbb8b3f0346f45c0944958bac6a2e8591803b4ab0bf37c01c6fe357a7f"
+    },
+    {
+     "path": "poi__poi.json.003",
+     "size": 32768,
+     "sha256": "60340990b28c3b5d353e872692baa614fc55368c66c011b5ec4e844e1f7aca5e"
+    },
+    {
+     "path": "poi__poi.json.004",
+     "size": 32768,
+     "sha256": "f2c456bbd4c98e749d7ca06dbee79987dbbe545125184e850901b33402521740"
+    },
+    {
+     "path": "poi__poi.json.005",
+     "size": 32768,
+     "sha256": "a2b97a0f265973196fbf6eeab03c075ad1b3d6f83b61f0c16305a444cf69dc4a"
+    },
+    {
+     "path": "poi__poi.json.006",
+     "size": 32768,
+     "sha256": "2266de222882a49321ccceec94997b5c295cb57427bb5a0181ee6d9023759251"
+    },
+    {
+     "path": "poi__poi.json.007",
+     "size": 32768,
+     "sha256": "0ca72c28bdf3e78bc48fbfe20633d2b14545f278164ad44ad4d529ee48884e6f"
+    },
+    {
+     "path": "poi__poi.json.008",
+     "size": 32768,
+     "sha256": "cc11c09b35baa4ece0c872ed2829e125bc5c97c191e692357c569e188ff22927"
+    },
+    {
+     "path": "poi__poi.json.009",
+     "size": 32768,
+     "sha256": "12237f4a81666c4eca96d95fcb071ee32fba2203d347c7ad066de8cbacf1236e"
+    },
+    {
+     "path": "poi__poi.json.010",
+     "size": 32768,
+     "sha256": "c4d24ae69998a731d3398b16b70682edf1e859de70302729efc207b7a149d0b2"
+    },
+    {
+     "path": "poi__poi.json.011",
+     "size": 32768,
+     "sha256": "61acb7d3594411b49863010171ad7653fd8be10bf70f3102420a16e05361360d"
+    },
+    {
+     "path": "poi__poi.json.012",
+     "size": 32768,
+     "sha256": "e8508cc655816785572af2285db5a857d8d33f88af14cf1456ca1088ef6d2256"
+    },
+    {
+     "path": "poi__poi.json.013",
+     "size": 17449,
+     "sha256": "1e7d3bec318ffe419965bf9186395c2d47a5685c06f4e31eb6f9958da8e6d235"
+    }
+   ]
+  },
+  {
+   "path": "alerts/alerts.json",
+   "size": 2808,
+   "sha256": "7d95d281fefbff57d822d553e01e0f23464ba6eeb38c55df53fd6116e5827a40",
+   "parts": [
+    {
+     "path": "alerts__alerts.json.000",
+     "size": 2808,
+     "sha256": "7d95d281fefbff57d822d553e01e0f23464ba6eeb38c55df53fd6116e5827a40"
+    }
+   ]
+  },
+  {
+   "path": "cities/cities.json",
+   "size": 307,
+   "sha256": "707a0c418296649de79c7ef97d616e4dd7f15624949b8f2a2cd854ad3e3ccdaf",
+   "parts": [
+    {
+     "path": "cities__cities.json.000",
+     "size": 307,
+     "sha256": "707a0c418296649de79c7ef97d616e4dd7f15624949b8f2a2cd854ad3e3ccdaf"
+    }
+   ]
+  },
+  {
+   "path": "voice/voice.json",
+   "size": 85,
+   "sha256": "a43d24e84234eef6de6d6fe83dead584d28e6e9a9cb35cb2c0f5de2e3ef81ef6",
+   "parts": [
+    {
+     "path": "voice__voice.json.000",
+     "size": 85,
+     "sha256": "a43d24e84234eef6de6d6fe83dead584d28e6e9a9cb35cb2c0f5de2e3ef81ef6"
+    }
+   ]
+  }
+ ]
+}
