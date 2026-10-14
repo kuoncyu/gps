@@ -1,0 +1,23 @@
+{
+ "packages": [
+  {
+   "id": "TW-DEMO",
+   "region": "Demo 區域（非真實地圖）",
+   "versions": [
+    {
+     "version": "2026.11.01",
+     "sizeBytes": 666058
+    },
+    {
+     "version": "2026.11.15",
+     "sizeBytes": 992051
+    },
+    {
+     "version": "2026.11.99",
+     "sizeBytes": 829004,
+     "testOnly": "corrupt"
+    }
+   ]
+  }
+ ]
+}
