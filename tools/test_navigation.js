@@ -1,0 +1,23 @@
+// 導航引擎單元測試（node tools/test_navigation.js）
+const fs = require('fs'), vm = require('vm'), assert = require('assert');
+const A = { Log: { info() {}, warn() {}, error() {} }, State: { get: () => ({}), set() {}, subscribe() {} }, Providers: {} };
+vm.runInNewContext(fs.readFileSync('js/navigation.js', 'utf8'), { window: { AIGPS: A }, localStorage: { getItem() { return null; } }, Date });
+const eq = (a, b, m) => assert.strictEqual(JSON.stringify(a), JSON.stringify(b), m);
+const N = A.Nav, route = [[-800, -800], [-800, -200], [-200, -200], [-200, 400]], R = N._prepare(route), I = N._build(R);
+assert.strictEqual(R.total, 600 + 600 + 600);
+eq(I.map(x => x.text), ['出發', '右轉', '左轉', '抵達目的地'], '指令序列');
+eq(I.map(x => x.at), [0, 600, 1200, 1800], '指令位置');
+const cls = (a) => N._build(N._prepare([[0, 0], [0, 100], [100 * Math.sin(a * Math.PI / 180), 100 + 100 * Math.cos(a * Math.PI / 180)]]))[1] || {};
+assert.strictEqual(cls(30).text, '稍微靠右'); assert.strictEqual(cls(-30).text, '稍微靠左'); assert.strictEqual(cls(90).text, '右轉'); assert.strictEqual(cls(-90).text, '左轉');
+assert.strictEqual(cls(150).text, '急右轉'); assert.strictEqual(cls(180).text, '迴轉'); assert.strictEqual(cls(5).type, 'arrive', '小於 15° 不產生轉彎指令');
+eq(['600', '90', '24', '300', '100', '500'].map(d => N._stageOf(+d)), ['far', '100', 'now', '300', '100', '500']);
+let p = N._progress(R, I, -800, -500, 0);
+assert(p.next.text === '右轉' && Math.round(p.dist) === 300 && p.stage === '300' && p.label === '300 m 後右轉', '300 m 提示');
+assert.strictEqual(Math.round(p.remaining), 1500);
+p = N._progress(R, I, -800, -290, 0); assert(p.stage === '100' && p.label === '100 m 後右轉');
+p = N._progress(R, I, -800, -210, 0); assert(p.stage === 'now' && p.label === '現在右轉');
+p = N._progress(R, I, -700, -200, 1); assert(p.next.text === '左轉' && Math.round(p.dist) === 500 && p.idx === 2, '過了第一個彎，指向下一個');
+p = N._progress(R, I, -200, 390, 2); assert(p.next.type === 'arrive' && p.stage === 'now' && p.label === '您已抵達目的地', '抵達');
+p = N._progress(R, I, -680, -500, 0); assert(Math.round(p.loc.dist) === 120, '偏離 120 m 可被偵測（>35 m）');
+assert(N._locate(R, -800, -300, 0).dist < 0.001 && Math.round(N._locate(R, -500, -200, 1).along) === 900, '投影');
+console.log('navigation tests PASS');
