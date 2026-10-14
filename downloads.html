@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-Hant" data-theme="auto"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="離線優先的智慧車用導航（Demo 資料）"><meta name="theme-color" content="#1259c3" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0e141b" media="(prefers-color-scheme: dark)"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon-180.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="AI GPS"><title>下載中心 － AI GPS</title><link rel="stylesheet" href="css/variables.css"><link rel="stylesheet" href="css/main.css"></head><body><a class="skip" href="#main">跳到主要內容</a><header id="statusbar"></header>
+<main class="wrap" id="main"><h1>下載中心</h1><p class="muted">資料包需首次聯網下載；完成並驗證後，日常導航不再依賴網路。</p>
+<div class="grid">
+<section class="card"><h2>目前資料包</h2><p><b id="active"></b>　<span id="ready"></span></p><ul class="road" id="checks"></ul><p class="muted">儲存空間：<span id="quota"></span></p>
+<div class="btns"><button id="btnVerify">重新驗證</button><button id="btnRollback">回復上一版</button><button id="btnRemove">刪除全部</button></div></section>
+<section class="card"><h2>可用版本</h2><ul class="road" id="avail"></ul></section>
+<section class="card"><h2>下載進度</h2><progress id="bar" max="100" value="0" style="width:100%"></progress><p id="pct" class="muted">尚未開始</p>
+<div class="btns"><button id="btnPause">暫停</button><button id="btnResume" class="primary">繼續</button><button id="btnCancel">取消</button></div>
+<p id="msg" role="status" aria-live="polite"></p></section>
+<section class="card"><h2>開發測試</h2><label><input type="checkbox" id="simSlow"> 慢速下載（方便測試暫停／關閉頁面後續傳）</label><br><label><input type="checkbox" id="simQuota"> 模擬儲存空間不足</label></section>
+</div></main>
+<script src="js/state.js"></script><script src="js/providers.js"></script><script src="js/demo.js"></script><script src="js/storage.js"></script><script src="js/package-manager.js"></script><script src="js/offline-manager.js"></script><script src="js/theme.js"></script><script src="js/downloads.js"></script><script src="js/pwa.js"></script><script src="js/app.js"></script></body></html>
