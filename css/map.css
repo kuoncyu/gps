@@ -1,0 +1,96 @@
+.mapwrap{position:relative;height:calc(100vh - 62px);min-height:420px;background:var(--bg);overflow:hidden}
+#map{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}#map:active{cursor:grabbing}
+.hud{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:8px 14px;opacity:.95}
+.hud.speed{left:12px;top:12px;text-align:center}.hud.speed b{font-size:34px;line-height:1}.hud.speed small{display:block;color:var(--muted)}
+.hud.info{right:12px;top:12px;font-size:14px}
+.demo-flag{position:absolute;left:50%;transform:translateX(-50%);top:8px;pointer-events:none;background:var(--warn);color:#fff;font-size:13px;font-weight:700;padding:2px 12px;border-radius:99px}
+.ctrl{position:absolute;left:0;right:0;bottom:12px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 10px}
+.ctrl button{min-width:var(--touch);box-shadow:0 2px 6px rgba(0,0,0,.2)}.ctrl button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.navtop{position:absolute;left:12px;right:12px;top:40px;display:flex;align-items:center;gap:14px;background:var(--accent);color:#fff;border-radius:var(--radius);padding:10px 16px;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.navtop.warn{background:var(--warn)}.navtop #navDist{font-size:34px;font-weight:700;line-height:1}.navtop #navText{font-size:18px;font-weight:600}.navtop #navNext{font-size:14px;opacity:.9}
+.navbottom{position:absolute;left:12px;right:12px;bottom:76px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:8px 14px}
+.navbottom b{font-size:20px}.navbottom small{display:block;color:var(--muted)}
+.navigating .hud.speed,.navigating .hud.info{top:132px}.navigating #btnPreview,.navigating #btnStart,.navigating #btnReset,.navigating #btnNav,.navigating #btnSpeed{display:none}
+.arrive{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45)}
+.arrive .card{min-width:280px;text-align:center}.arrive dl{display:grid;grid-template-columns:1fr 1fr;gap:6px;text-align:left}.arrive dt{color:var(--muted)}.arrive dd{margin:0;font-weight:700}
+.toast{position:absolute;left:50%;transform:translateX(-50%);top:140px;z-index:3;background:var(--panel);border:1px solid var(--warn);border-radius:var(--radius);padding:8px 14px}
+[hidden]{display:none!important}
+
+.lanes{position:absolute;left:50%;transform:translateX(-50%);bottom:146px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:8px 12px;text-align:center}
+.lanes small{display:block;color:var(--warn);font-size:12px;margin-top:4px}.lanebox{display:flex;gap:4px;justify-content:center}
+.lane{display:flex;align-items:center;justify-content:center;min-width:44px;height:52px;padding:0 4px;border:2px solid var(--line);border-radius:6px;color:var(--muted);opacity:.55}
+.lane.ok{opacity:1;color:var(--text);border-color:var(--text)}.lane.rec{opacity:1;background:var(--accent);border-color:var(--accent);color:#fff}
+.preview{position:absolute;left:12px;top:44px;width:min(340px,calc(100% - 24px));max-height:60%;overflow:auto}.preview ol{padding-left:20px;margin:6px 0}
+
+.offer{position:absolute;left:50%;transform:translateX(-50%);top:190px;width:min(420px,calc(100% - 24px));z-index:3;border-color:var(--accent)}.offer p{margin:0 0 6px;font-weight:600}
+.tpanel{position:absolute;right:12px;top:44px;width:min(340px,calc(100% - 24px));z-index:2}
+
+.drv{position:absolute;left:12px;top:120px;width:210px;z-index:2;display:flex;flex-direction:column;gap:6px}.navigating .drv{top:212px}
+.drvitem{display:flex;gap:8px;align-items:center;background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--warn);border-radius:var(--radius);padding:6px 10px;font-size:14px}
+.drvitem.near{border-left-color:#f08c00}.drvitem.now{border-left-color:#e03131}.drvitem.over{background:#e03131;color:#fff}
+.bdg{min-width:28px;height:28px;border-radius:6px;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+.apanel{position:absolute;right:12px;top:44px;width:min(300px,calc(100% - 24px));z-index:2}.apanel label{display:block;min-height:34px}
+
+.aip{width:min(380px,calc(100% - 24px));max-height:78%;overflow:auto}.ailog{max-height:260px;overflow:auto;margin-bottom:6px}
+.bub{padding:6px 10px;border-radius:10px;margin:4px 0;max-width:92%;white-space:pre-wrap}.bub.u{background:var(--accent);color:#fff;margin-left:auto}.bub.a{background:var(--bg)}
+.airow{display:flex;gap:6px;margin-top:8px}.airow input{flex:1;min-height:var(--touch);font:inherit;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text)}
+
+.upanel{max-height:70%;overflow:auto;width:min(380px,calc(100% - 24px))}
+
+/* Batch 13：浮動媒體／來電／通知，固定在右側中段（不與轉彎橫幅、底部資訊列、車速、車道、警示重疊） */
+.mini{position:absolute;right:12px;top:48%;z-index:2;display:flex;align-items:center;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:4px 8px;box-shadow:0 2px 6px rgba(0,0,0,.2);max-width:260px}
+.mini button{min-width:var(--touch);padding:0}.mini span{font-size:13px;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.callbox{position:absolute;right:12px;top:calc(48% + 64px);z-index:4;display:flex;align-items:center;gap:8px;background:var(--panel);border:2px solid var(--ok);border-radius:var(--radius);padding:6px 10px;max-width:280px}
+.callbtns{display:flex;gap:6px}.callbox button{min-width:var(--touch);padding:0}#callOk{background:var(--ok);color:#fff;border-color:var(--ok)}#callNo{background:var(--err);color:#fff;border-color:var(--err)}
+.toastbox{position:absolute;right:12px;top:calc(48% + 128px);z-index:3;display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:6px 10px;max-width:280px;font-size:14px}
+.toastbox.compact{padding:4px 8px;font-size:13px}.toastbox span{color:var(--muted)}
+.mini.min span,.toastbox.min span,.callbox.min #callTxt{display:none}.mini.min,.toastbox.min,.callbox.min{padding:2px 6px;max-width:150px}.callbox.min::before{content:'來電';font-size:13px}.mini.hide,.toastbox.hide,.callbox.hide{display:none!important}
+.iph{max-height:78%;overflow:auto}
+
+.callbox.min[data-state=active]::before{content:'通話中'}
+
+/* ===== Batch 14：對比、動畫、響應式 ===== */
+.ctrl button[aria-pressed="true"]{color:var(--on-accent)}.navtop{color:var(--on-accent)}.navtop.warn{background:var(--warn);color:var(--on-warn)}.demo-flag{background:var(--warn);color:var(--on-warn)}
+.lane.rec{color:var(--on-accent)}.bub.u{color:var(--on-accent)}#callOk{color:var(--on-ok)}#callNo{color:var(--on-err)}.drvitem.over{background:var(--err);color:var(--on-err)}
+.limit{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:4px solid #c92a2a;border-radius:50%;background:#fff;color:#14202e;font-weight:700;font-size:16px;margin-top:4px}
+#spd.over{color:var(--err)}
+.ctrl{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:4px;scrollbar-width:thin}.ctrl>*{flex:0 0 auto}
+@supports (justify-content:safe center){.ctrl{justify-content:safe center}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.apanel:not([hidden]),.preview:not([hidden]),.offer:not([hidden]),.toastbox:not([hidden]),.callbox:not([hidden]),.mini:not([hidden]),.lanes:not([hidden]),.navtop:not([hidden]){animation:fade .16s ease-out}   /* 警示卡內容每 0.1 秒更新，不可套用進場動畫（會一直重播而閃爍） */
+.apanel:focus,.preview:focus{outline:none}
+@media (max-width:640px){
+  .apanel,.aip,.upanel,.iph,.tpanel,.preview{left:12px!important;right:12px!important;width:auto!important;top:44px!important;max-height:calc(100% - 150px)!important}
+  .hud.info{display:none}.navtop{padding:8px 12px;gap:10px;top:36px}.navtop #navDist{font-size:28px}.navtop #navText{font-size:16px}
+  .navbottom{gap:10px;padding:6px 10px;left:8px;right:8px}.navbottom b{font-size:17px}.hud.speed b{font-size:28px}.drv{width:176px}
+  .offer{width:calc(100% - 24px)!important}.demo-flag{font-size:11px;padding:1px 8px}
+}
+@media (max-height:520px){.navtop{top:30px;padding:4px 12px}.navtop #navDist{font-size:24px}.lanes{bottom:128px}.hud.speed{top:96px}.navigating .hud.speed{top:96px}.drv{top:96px}.navigating .drv{top:170px}}
+
+/* ===== 真實瀏覽器驗證後的版面修正 ===== */
+.mapwrap{height:calc(100vh - var(--hdr,62px));height:calc(100dvh - var(--hdr,62px))}
+body.navmode #statusbar{display:none}body.navmode .mapwrap{height:100vh;height:100dvh}      /* 導航中：沉浸模式，地圖用滿整個視窗 */
+.navsvc{position:absolute;right:12px;top:8px;z-index:3;display:none}body.navmode .navsvc{display:inline-block}
+.demo-flag{white-space:nowrap}.demo-flag .short{display:none}
+@media (max-width:640px){.demo-flag .long{display:none}.demo-flag .short{display:inline}.navsvc{font-size:12px}}
+/* 橫放且高度很矮（手機架在車上）：轉彎資訊在左、車速與警示在右，地圖留在中間 */
+@media (max-height:520px) and (orientation:landscape){
+  .demo-flag{top:2px;font-size:11px;padding:0 8px}.navsvc{top:2px;right:8px}
+  .navtop{top:22px;left:8px;right:auto;width:min(380px,46%);padding:4px 10px;gap:10px}.navtop #navDist{font-size:24px}.navtop #navText{font-size:15px}.navtop #navNext{display:none}
+  .hud.speed,.navigating .hud.speed{left:auto;right:8px;top:24px}.hud.info,.navigating .hud.info{display:none}
+  .drv,.navigating .drv{left:auto;right:8px;top:118px;width:210px}
+  .navbottom{left:8px;right:auto;width:min(380px,46%);bottom:64px;gap:8px;padding:4px 10px}.navbottom b{font-size:16px}#btnOff{display:none}
+  .lanes{left:auto;right:8px;transform:none;bottom:64px}
+  .apanel,.aip,.upanel,.iph,.tpanel,.preview{top:8px!important;max-height:calc(100% - 76px)!important}
+  .ctrl{bottom:4px}
+}
+
+/* 車速牌與警示卡放進同一個直向容器：由排版決定位置，不可能互相重疊 */
+.mapwrap{min-height:0}
+.leftcol{position:absolute;left:12px;top:120px;z-index:2;display:flex;flex-direction:column;gap:8px;width:210px;pointer-events:none}.navigating .leftcol{top:132px}
+.leftcol .hud.speed{position:static;align-self:flex-start}.leftcol .drv{position:static;width:auto}
+@media (max-width:640px){.leftcol{width:176px}}
+@media (max-height:520px) and (orientation:landscape){.leftcol,.navigating .leftcol{left:auto;right:8px;top:24px;width:210px;align-items:flex-end}.leftcol .drv{width:210px}}
+
+@media (max-width:640px){.leftcol{width:min(212px,58vw)}.drvitem{font-size:13px;padding:6px 8px}.drvitem b{white-space:nowrap}}
+.drvitem div{min-width:0}

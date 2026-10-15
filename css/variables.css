@@ -1,0 +1,6 @@
+/* 設計 token（Batch 14）。色彩已通過 WCAG AA 對比測試（node tools/test_contrast.js） */
+:root{--bg:#f3f5f8;--panel:#ffffff;--text:#14202e;--muted:#4a586a;--line:#c4cdd8;--accent:#1259c3;--on-accent:#ffffff;--ok:#146c36;--on-ok:#ffffff;--warn:#8a5600;--on-warn:#ffffff;--err:#b32020;--on-err:#ffffff;
+--radius:12px;--touch:48px;--font:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;
+--sp1:4px;--sp2:8px;--sp3:12px;--sp4:16px;--sp5:24px;--fs-sm:14px;--fs:16px;--fs-lg:18px;--fs-xl:22px;--fs-2xl:28px;--shadow:0 1px 2px rgba(16,24,40,.08),0 4px 12px rgba(16,24,40,.06)}
+:root[data-theme="night"]{--bg:#0e141b;--panel:#18212c;--text:#e8eef5;--muted:#a6b3c3;--line:#3a4757;--accent:#7ab4ff;--on-accent:#07111f;--ok:#5fd18b;--on-ok:#04140a;--warn:#f0b955;--on-warn:#1a1200;--err:#ff8f8f;--on-err:#240606;--shadow:0 1px 2px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3)}
+@media (prefers-color-scheme:dark){:root[data-theme="auto"]{--bg:#0e141b;--panel:#18212c;--text:#e8eef5;--muted:#a6b3c3;--line:#3a4757;--accent:#7ab4ff;--on-accent:#07111f;--ok:#5fd18b;--on-ok:#04140a;--warn:#f0b955;--on-warn:#1a1200;--err:#ff8f8f;--on-err:#240606;--shadow:0 1px 2px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3)}}
